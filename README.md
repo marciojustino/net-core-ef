@@ -4,3 +4,6 @@ This is a .net core entity framework webapi test using .netcore 3.1 framework ve
 ## Structure
 - Products
 - Categories
+
+## Swagger
+Open browser and navigate to https://localhost:5001/testef
