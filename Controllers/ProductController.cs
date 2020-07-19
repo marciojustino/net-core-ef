@@ -8,10 +8,18 @@ using testef.Models;
 
 namespace testef.Controllers
 {
+    /// <summary>
+    /// Product services
+    /// </summary>
     [ApiController]
     [Route("v1/products")]
     public class ProductController : ControllerBase
     {
+        /// <summary>
+        /// List all existent products
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("")]
         public async Task<ActionResult<List<Product>>> Get([FromServices] DataContext context)
@@ -21,6 +29,12 @@ namespace testef.Controllers
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Get product by product identification
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="id">Product identification</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:int}")]
         public async Task<ActionResult<Product>> GetById([FromServices] DataContext context, [FromRoute] int id)
@@ -31,6 +45,12 @@ namespace testef.Controllers
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        /// <summary>
+        /// List all products from category
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="categoryId">Category identification</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("categories/{id:int}")]
         public async Task<ActionResult<List<Product>>> GetByCategory([FromServices] DataContext context, [FromRoute] int categoryId)
@@ -42,6 +62,12 @@ namespace testef.Controllers
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Save product data
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="model">Product data</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("")]
         public async Task<ActionResult<Product>> Post([FromServices] DataContext context, [FromBody] Product model)
