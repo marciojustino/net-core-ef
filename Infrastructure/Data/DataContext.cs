@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using testef.Models;
+using testef.Entities.Models;
 
-namespace testef.Data
+namespace testef.Infrastructure.Data
 {
     public class DataContext : DbContext
     {
